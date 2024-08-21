@@ -1,0 +1,33 @@
+{{include('content/navbar.html.twig')}}
+{{include('content/slidebar.html.twig')}}
+{% block title %}New Ressource{% endblock %}
+
+{% block body %}
+<div class="pcoded-content">
+             
+    <div class="container mt-4">
+    <h1>Ressource</h1>
+    {{form_start(form)}}
+
+        <div class="form-group">
+            {{ form_label(form.nom_ressource, 'Ressource') }}
+            {{ form_widget(form.nom_ressource, {'attr': {'class': 'form-control', 'placeholder': "Nom projet"}}) }}
+            {{ form_errors(form.nom_ressource) }}
+        </div>
+         <div class="form-group">
+            {{ form_label(form.qty_ressource, 'Description du  Ressource') }}
+            {{ form_widget(form.qty_ressource, {'attr': {'class': 'form-control', 'placeholder': "Description du  projet"}}) }}
+            {{ form_errors(form.qty_ressource) }}
+        </div>
+         <div class="form-group">
+            {{ form_label(form.cout_ressource, 'Cout') }}
+            {{ form_widget(form.cout_ressource, {'attr': {'class': 'form-control', 'placeholder':" Cout"}}) }}
+            {{ form_errors(form.cout_ressource) }}
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    {{form_end(form)}}
+    
+    {{include('content/data.html.twig')}}
+{% endblock %}
