@@ -1,0 +1,26 @@
+{{ include('content/navbar.html.twig') }}
+{{ include('content/slidebar.html.twig') }}
+{% block title %} Domaine{% endblock %}
+
+{% block body %}
+<div class="pcoded-content">
+    <div class="container mt-4">
+        <h1>Modifier Doamine</h1>
+
+        {{form_start(form)}}
+            <div class="form-group">
+                {{ form_label(form.nom, 'Nom Domaine') }}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': "Nom Domaine"}}) }}
+                {{ form_errors(form.nom) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.type, 'Type Domaine') }}
+                {{ form_widget(form.type, {'attr': {'class': 'form-control', 'placeholder': "Type Domaine"}}) }}
+                {{ form_errors(form.type) }}
+            </div>
+        <button class="btn btn-primary"> Modifier  </button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{{ include('content/data.html.twig') }}
+{% endblock %}
