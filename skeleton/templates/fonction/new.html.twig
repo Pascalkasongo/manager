@@ -1,11 +1,21 @@
-{% extends 'base.html.twig' %}
-
+{{include('content/navbar.html.twig')}}
+{{include('content/slidebar.html.twig')}}
 {% block title %}New Fonction{% endblock %}
 
 {% block body %}
-    <h1>Create new Fonction</h1>
-
-    {{ include('fonction/_form.html.twig') }}
-
-    <a href="{{ path('app_fonction_index') }}">back to list</a>
+<div class="pcoded-content">
+    <div class="container mt-4">
+<h1>Nouvelle Fonction</h1>
+    {{form_start(form)}}
+            <div class="form-group">
+                {{ form_label(form.nom_fonction, 'Nom Fonction') }}
+                {{ form_widget(form.nom_fonction, {'attr': {'class': 'form-control', 'placeholder': "Nom Fonction"}}) }}
+                {{ form_errors(form.nom_fonction) }}
+            </div>
+           
+        <button class="btn btn-primary"> Enregistrer  </button>
+    {{ form_end(form) }}
+    </div>
+</div>
+    {{include('content/data.html.twig')}}
 {% endblock %}
