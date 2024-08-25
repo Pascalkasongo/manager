@@ -20,9 +20,11 @@
                 <tr>
                     <td>{{ fonction.id }}</td>
                     <td>{{ fonction.nomFonction }}</td>
-                    <td>
-                        <a href="{{ path('app_fonction_show', {'id': fonction.id}) }}">show</a>
-                        <a href="{{ path('app_fonction_edit', {'id': fonction.id}) }}">edit</a>
+                    <td>{{ domaine.type }}</td>
+                        <td>
+                        <a href="{{ path('app_fonction_show', {'id': fonction.id}) }}"class="btn btn-primary btn-sm" title="View"><i class="fas fa-eye"></i></a>
+                        <a href="{{ path('app_fonction_edit', {'id': fonction.id}) }}"class="btn btn-warning btn-sm" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('app_fonction_delete', {'id': fonction.id}) }}"class="btn btn-danger btn-sm" title="Delete"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             {% else %}
