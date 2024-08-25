@@ -21,12 +21,12 @@ class Equipe
     #[ORM\Column]
     private ?int $nombre_membre = null;
 
-    #[ORM\OneToMany(mappedBy: 'equipe', targetEntity: Employe::class)]
-    private Collection $employe;
+    #[ORM\OneToMany(mappedBy: 'equipe', targetEntity: Tache::class)]
+    private Collection $taches;
 
     public function __construct()
     {
-        $this->employe = new ArrayCollection();
+        $this->taches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -59,32 +59,35 @@ class Equipe
     }
 
     /**
-     * @return Collection<int, Employe>
+     * @return Collection<int, Tache>
      */
-    public function getEmploye(): Collection
+    public function getTaches(): Collection
     {
-        return $this->employe;
+        return $this->taches;
     }
 
-    public function addEmploye(Employe $employe): static
+    public function addTach(Tache $tach): static
     {
-        if (!$this->employe->contains($employe)) {
-            $this->employe->add($employe);
-            $employe->setEquipe($this);
+        if (!$this->taches->contains($tach)) {
+            $this->taches->add($tach);
+            $tach->setEquipe($this);
         }
 
         return $this;
     }
 
-    public function removeEmploye(Employe $employe): static
+    public function removeTach(Tache $tach): static
     {
-        if ($this->employe->removeElement($employe)) {
+        if ($this->taches->removeElement($tach)) {
             // set the owning side to null (unless already changed)
-            if ($employe->getEquipe() === $this) {
-                $employe->setEquipe(null);
+            if ($tach->getEquipe() === $this) {
+                $tach->setEquipe(null);
             }
         }
 
         return $this;
     }
+
+    
+
 }
